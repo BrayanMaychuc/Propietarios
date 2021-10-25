@@ -8,9 +8,7 @@ new Vue({
 		apellidop:'',
 		apellidom:'',
 		genero:'',
-		editando:0,
 		indice:0,
-		buscar:'',
 		//TRABAJAREMOS UN ARRAY ESTÁTICO
 		propietarios:[{nombre:'Jesus', apellidop:'Chan', apellidom:'tamay', genero:'H'},
 		{nombre:'Maria', apellidop:'Chable', apellidom:'Burgos', genero:'M'},
@@ -19,4 +17,29 @@ new Vue({
 		],
 
 	},
+
+	//Seccion de metodos
+	methods:{
+
+		//CREAMOS UN MÉTODO PARA GUARDAR DATOS NUEVOS
+		agregarPropietario:function(){
+
+			var unPropietario={nombre:this.nombre,apellidop:this.apellidop,apellidom:this.apellidom,genero:this.genero};
+			this.propietarios.push(unPropietario);
+		},
+
+		limpiarHtml:function(){
+			this.nombre='';
+			this.apellidop='';
+			this.apellidom='';
+			this.genero='';
+		},
+
+		editarPropietario:function(){
+			this.nombre=this.propietarios[pos].nombre;
+			this.apellidop=this.propietarios[pos].apellidop
+			this.apellidom=this.propietarios[pos].apellidom;
+			this.genero=this.propietarios[pos].genero;
+		}
+	}
 })

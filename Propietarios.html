@@ -8,8 +8,25 @@
 </head>
 <body class="container">
 	<!-- INICIO DEL VUE -->
+	<div class="row">
+		<div class="col-md-2">
+			<input type="text" class="form-control" placeholder="nombre" v-model="nombre">
+		</div>
+		<div class="col-md-2">
+			<input type="text" class="form-control" placeholder="Apellido Paterno" v-model="apellidop">
+		</div>
+		<div class="col-md-2">
+			<input type="text" class="form-control" placeholder="Apellido Materno" v-model="apellidom">
+		</div>
+		<div class="col-md-2">
+			<input type="text" class="form-control" placeholder="Genero" v-model="genero">
+		</div>
+	</div>
 	<div id="miPagina">
 		<hr><hr>
+		<button class="btn btn-outline-primary btn-sm" @click="agregarPropietario()">
+			Agregar
+		</button>
 		<!-- INICIAMOS A TRABAJAR CON UNA TABLA -->
 		<table class="table table-bolderd">
 			<thead>
@@ -22,17 +39,17 @@
 			</thead>
 			<tbody>
 				<!-- USAMOS V-FOR PARA RECORRER LOS DATOS DEL ARCHIVO JS -->
-				<tr v-for="propi in propietarios">
-					<td></td>
+				<tr v-for="(propi,index) in propietarios">
+					<td>{{index}}</td>
 					<td>{{propi.nombre}}</td>
 					<td>{{propi.apellidop}}</td>
 					<td>{{propi.apellidom}}</td>
 					<td>{{propi.genero}}</td>
 					<td>
-						<button class="btn btn-primary btn-sm">
+						<button class="btn btn-uotline-secundary btn-sm">
 							Modificar
 						</button>
-						<button class="btn btn-warning btn-sm">
+						<button class="btn btn-outline-danger btn-sm">
 							Eliminar
 						</button>
 					</td>
