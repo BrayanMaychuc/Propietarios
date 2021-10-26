@@ -25,8 +25,29 @@ new Vue({
 		//CREAMOS UN MÉTODO PARA GUARDAR DATOS NUEVOS
 		agregarPropietario:function(){
 
+			if (this.nombre && this.apellidop && this.apellidom && this.genero) {
+
 			var unPropietario={nombre:this.nombre,apellidop:this.apellidop,apellidom:this.apellidom,genero:this.genero};
 			this.propietarios.push(unPropietario);
+			this.limpiarHtml();
+
+			Swal.fire({
+				position:'top-end',
+				icon:'success',
+				title:'El propietario se agrego correctamente',
+				showConfirmButton: false,
+				timer:1000
+				});
+
+				} else {
+				Swal.fire({
+				position:'top-end',
+				icon:'error',
+				title:'Debe ingresar los datos',
+				showConfirmButton: false,
+				timer:1000
+				});
+		}
 		},
 
 		limpiarHtml:function(){
@@ -38,7 +59,7 @@ new Vue({
 
 		editarPropietario:function(pos){
 			this.nombre=this.propietarios[pos].nombre;
-			this.apellidop=this.propietarios[pos].apellidop
+			this.apellidop=this.propietarios[pos].apellidop;
 			this.apellidom=this.propietarios[pos].apellidom;
 			this.genero=this.propietarios[pos].genero;
 			this.indice=pos;
@@ -50,6 +71,14 @@ new Vue({
 			 
 			 if(pregunta)
 			 	this.propietarios.splice(pos,1);
+
+			 Swal.fire({
+				position:'top-end',
+				icon:'danger',
+				title:'El propietario se elimino correctamente',
+				showConfirmButton: false,
+				timer:1000
+				});
 
 		},
 

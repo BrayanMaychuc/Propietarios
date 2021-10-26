@@ -8,6 +8,7 @@
 </head>
 <body class="container">
 	<!-- INICIO DEL VUE -->
+	<div id="miPagina">
 	<div class="row">
 		<div class="col-md-2">
 			<input type="text" class="form-control" placeholder="nombre" v-model="nombre">
@@ -22,15 +23,12 @@
 			<input type="text" class="form-control" placeholder="Genero" v-model="genero">
 		</div>
 	</div>
-	<div id="miPagina">
 		<hr><hr>
 		<div class="row">
 			<div class="col-md-3">
 				<button class="btn btn-outline-primary btn-sm" v-if="editando==0" @click="agregarPropietario()">
 				Agregar
 				</button>
-			</div>
-			<div class="col-md-3">
 				<button class="btn btn-outline-primary btn-sm" v-if="editando==1" @click="guardarEdicion()">
 				Agregar
 				</button>
