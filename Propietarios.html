@@ -24,9 +24,24 @@
 	</div>
 	<div id="miPagina">
 		<hr><hr>
-		<button class="btn btn-outline-primary btn-sm" @click="agregarPropietario()">
-			Agregar
-		</button>
+		<div class="row">
+			<div class="col-md-3">
+				<button class="btn btn-outline-primary btn-sm" v-if="editando==0" @click="agregarPropietario()">
+				Agregar
+				</button>
+			</div>
+			<div class="col-md-3">
+				<button class="btn btn-outline-primary btn-sm" v-if="editando==1" @click="guardarEdicion()">
+				Agregar
+				</button>
+			</div>
+			<div class="col-md-3">
+				<button class="btn btn-outline-primary btn-sm" @click="cancelar()">
+				Cancelar
+				</button>
+			</div>
+
+		</div>
 		<!-- INICIAMOS A TRABAJAR CON UNA TABLA -->
 		<table class="table table-bolderd">
 			<thead>
@@ -46,10 +61,10 @@
 					<td>{{propi.apellidom}}</td>
 					<td>{{propi.genero}}</td>
 					<td>
-						<button class="btn btn-uotline-secundary btn-sm">
+						<button class="btn btn-uotline-secundary btn-sm" @click="editarPropietario(index)">
 							Modificar
 						</button>
-						<button class="btn btn-outline-danger btn-sm">
+						<button class="btn btn-outline-danger btn-sm" @click="eliminarPropietario(index)">
 							Eliminar
 						</button>
 					</td>

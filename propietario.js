@@ -9,6 +9,7 @@ new Vue({
 		apellidom:'',
 		genero:'',
 		indice:0,
+		editando:0,
 		//TRABAJAREMOS UN ARRAY ESTÁTICO
 		propietarios:[{nombre:'Jesus', apellidop:'Chan', apellidom:'tamay', genero:'H'},
 		{nombre:'Maria', apellidop:'Chable', apellidom:'Burgos', genero:'M'},
@@ -35,11 +36,33 @@ new Vue({
 			this.genero='';
 		},
 
-		editarPropietario:function(){
+		editarPropietario:function(pos){
 			this.nombre=this.propietarios[pos].nombre;
 			this.apellidop=this.propietarios[pos].apellidop
 			this.apellidom=this.propietarios[pos].apellidom;
 			this.genero=this.propietarios[pos].genero;
-		}
+			this.indice=pos;
+			this.editando=1;
+		},
+
+		eliminarPropietario:function(){
+			var pregunta=confirm('Esta seguro de Eliminar?');
+			 
+			 if(pregunta)
+			 	this.propietarios.splice(pos,1);
+
+		},
+
+		guardarEdicion:function(){
+			this.propietarios[this.indice].nombre=this.nombre;
+			this.propietarios[this.indice].apellidop=this.apellidop;
+			this.propietarios[this.indice].apellidom=this.apellidom;
+			this.propietarios[this.indice].genero=this.genero;
+		},
+
+		cancelar:function(){
+			this.limpiarHtml();
+			this.editando=0;
+		},
 	}
 })
