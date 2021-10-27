@@ -87,6 +87,8 @@ new Vue({
 			this.propietarios[this.indice].apellidop=this.apellidop;
 			this.propietarios[this.indice].apellidom=this.apellidom;
 			this.propietarios[this.indice].genero=this.genero;
+			this.limpiarHtml();
+			this.editando=0;
 		},
 
 		cancelar:function(){
